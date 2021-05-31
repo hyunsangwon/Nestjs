@@ -31,8 +31,8 @@ export class UserService {
     async updateUser(id: number, userData: UpdateUserDto): Promise<User> {
         try {
             const user = await this.userRepository.findOneOrFail(id);
-            userData.id = id;
-            if (user) return this.userRepository.save(userData);
+            userData.id = user.id;
+            return this.userRepository.save(userData);
         } catch (err) {
             throw err;
         }
