@@ -9,6 +9,12 @@ $ npm -g @nestjs/cli
 $ npm new <project-name>
 ```
 
+## Installation ORM & DB
+
+```bash
+$ npm install --save @nestjs/typeorm typeorm mysql2
+```
+
 ## Installation Class (자주 생성하는거 위주)
 
 ```bash
