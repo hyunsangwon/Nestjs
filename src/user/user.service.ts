@@ -19,4 +19,20 @@ export class UserService {
             throw err;
         }
     }
+
+    createUser(name: string): Promise<User> {
+        const newUser = this.userRepository.create({ name }); // const newUser = new User();
+        return this.userRepository.save(newUser);
+    }
+
+    async updateUser(id: number, name: string): Promise<User> {
+        const user = await this.getOneById(id);
+        user.name = name;
+        return this.userRepository.save(user);
+    }
+
+    async deleteUser(id: number): Promise<User> {
+        const user = await this.getOneById(id);
+        return this.userRepository.remove(user);
+    }
 }
