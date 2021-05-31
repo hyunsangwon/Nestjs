@@ -14,11 +14,12 @@ export class UserService {
     }
 
     async getOneById(id: number): Promise<User> {
+        const user = await this.userRepository.findOne(id);
         try {
-            const user = await this.userRepository.findOneOrFail(id);
+            if (!user) throw new Error('없는 회원 아이디 입니다.');
             return user;
         } catch (err) {
-            throw err;
+            return err.message;
         }
     }
 
@@ -28,10 +29,10 @@ export class UserService {
     }
 
     async updateUser(id: number, userData: UpdateUserDto): Promise<User> {
-        const user = await this.getOneById(id);
         try {
             const user = await this.userRepository.findOneOrFail(id);
-            if (!user) return this.userRepository.save(userData);
+            userData.id = id;
+            if (user) return this.userRepository.save(userData);
         } catch (err) {
             throw err;
         }
