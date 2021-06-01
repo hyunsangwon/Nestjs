@@ -7,6 +7,11 @@ export class DeviceController {
 
     @Get('/:id')
     getDevicelogs(@Param('id') deviceId: string) {
-        return this.deviceService.getTemperatureLogs(deviceId);
+        return this.deviceService.getOneTemperatureLogs(deviceId);
+    }
+
+    @Get()
+    getDeviceAlllogs() {
+        return this.deviceService.getAllTemperatureLogs();
     }
 }
