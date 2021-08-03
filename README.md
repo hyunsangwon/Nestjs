@@ -30,7 +30,12 @@ Node.js는 처음 부터 끝까지 부품들을 조립하다 보면 프로젝트
 
 ```bash
 $ npm -g @nestjs/cli
-$ npm new <project-name>
+```
+
+## Project settings
+```bash
+$ nest
+$ nest new <project-name>
 ```
 
 ## Installation ORM & DB
