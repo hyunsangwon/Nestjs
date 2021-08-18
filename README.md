@@ -42,6 +42,11 @@ $ nest new <project-name>
 $ npm install --save @nestjs/typeorm typeorm mysql2
 ```
 
+## TypeORM 패턴
+- TypeORM은 Active Record 패턴과 Data Mapper 패턴으로 나뉨.
+- Active Record는 entity에서 쿼리 정의
+- Data Mapper는 repo를 따로 만들어 쿼리 정의
+
 ## Installation Class (자주 생성하는거 위주)
 
 ```bash
